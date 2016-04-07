@@ -28,8 +28,9 @@ def recognize_entities(headline):
 				data = cursor.fetchall()
 
 				if len(data)>0:	# this means entity alredy exists in our database
-					entities.append( (e[0], "old") )
-					print "The entity", e[0], "is not a new entity. It alredy exists in our database."
+					sen = "It alredy exists in our database."
+					entities.append( (e[0], "old. "+sen) )
+					print "The entity", e[0], "is not a new entity. "+sen
 
 				else:
 					# try to find the entity in wikidump
